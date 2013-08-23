@@ -125,8 +125,9 @@ def function_three():
 
 def function_four():
     print "running four"
+    num_motors = two_d_display.qry_number_motors()
     print "\nMotor IDs: 0-", num_motors - 1
-    comm_choice = raw_input("\nPlease enter a vibration string -- e.g. 1:0,1,0,1,0,1,3")
+    comm_choice = raw_input("\nPlease enter a vibration string -- e.g. 1:0,1,0,1,0,1,3\n")
     x = comm_choice.split(':')
     pattern = int(x[0])
     motors = x[1].split(',')
