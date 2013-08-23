@@ -29,7 +29,7 @@ def find_comm_port():
     print "Printing current available comm ports.\n"
     for i in comm_port:
         print i
-    comm_choice = raw_input("\nPlease choose the full path to the comm port that the haptic controller is connected to:") 
+    comm_choice = raw_input("\nPlease choose the full path to the comm port that the haptic controller is connected to:")
     return comm_choice
 
 def function_zero():
@@ -125,6 +125,15 @@ def function_three():
 
 def function_four():
     print "running four"
+    print "\nMotor IDs: 0-", num_motors - 1
+    comm_choice = raw_input("\nPlease enter a vibration string -- e.g. 1:0,1,0,1,0,1,3")
+    x = comm_choice.split(':')
+    pattern = int(x[0])
+    motors = x[1].split(',')
+    motors = [int(m) for m in motors]
+    for m in motors:
+        two_d_display.vibrate(m,0,0,pattern)
+        time.sleep(.2)
     print "completed four"
 
 def function_five():
